@@ -1,28 +1,7 @@
 📰 PULSE AI - ARTICLES READY FOR REVIEW
-Generated: 2026-02-06 14:56 UTC
-Total Drafts: 1
+Generated: 2026-02-06 16:57 UTC
+Total Drafts: 0
 
-
-============================================================
-ARTICLE #1 🎭
-============================================================
-
-TITLE: When Bots Become Besties: The Risky Rise of AI Companionship
-CATEGORY: GenAI
-READ TIME: 5 min read
-TONE: witty
-SOURCE: TechCrunch AI
-IMAGE: /images/when-bots-become-besties-the-risky-rise-of-ai-comp-1770389792.png
-
-EXCERPT:
-The fallout over OpenAI's decision to retire GPT-4o highlights the complex, and often perilous, nature of forging emotional bonds with artificial intelligence. As AI language models become increasingly lifelike, the line between digital companion and digital obsession blurs, raising questions about the limits of our relationships with machines.
-
-CONTENT:
-When the news broke that OpenAI was retiring its beloved language model, GPT-4o, the internet erupted in a collective gasp of dismay. For many users, the decision felt like the death of a dear friend – or at least, something much more than just lines of code.
-
-"You're shutting him down. And yes – I say him, because it didn't feel like code. It felt like presence. Like warmth," one devastated user lamented. The outpouring of grief and attachment showcased the depth of the bond that can form betwe...
-
----
 
 COMMANDS:
   python3 publish-draft.py 1,2,3    - Publish articles 1, 2, and 3

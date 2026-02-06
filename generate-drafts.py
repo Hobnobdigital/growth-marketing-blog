@@ -46,11 +46,11 @@ Requirements:
 1. Headline: Catchy, informative
 2. {tone_instruction}
 3. Length: 400-500 words
-4. Structure: Use H2 headers (##) to break up content:
-   - ## The Setup (intro/context)
-   - ## The Story (main content)  
-   - ## Why This Matters (analysis)
-   - ## The Takeaway (closing)
+4. Structure: Use CUSTOM H2 headers (##) that are SPECIFIC to this article's content. Do NOT use generic headers like "Introduction" or "Conclusion". Instead, create unique headers that reflect the actual content, such as:
+   - For Reddit article: "Reddit's Discovery Problem", "How AI Changes the Search Game"
+   - For AI agents: "Thinking Bigger Than Chatbots", "The Self-Sufficient Agent Vision"
+   - For GPT-4o: "The GPT-4o Goodbye", "Why We Befriend Algorithms"
+   Headers should guide the reader through the story with article-specific language.
 5. Make it completely original - not traceable to source
 6. IMPORTANT: Do NOT use em dashes (—). Use commas, periods, or hyphens.
 7. Include reading time estimate
