@@ -1,27 +1,27 @@
 # Pulse AI - Auto-Generation Workflow
 
-## ✅ UPDATED: Articles Auto-Generated for Review
+## ✅ UPDATED: 6 Articles/Day Target
 
 ### New Workflow:
 
 ```
-Every Hour:
+Every 4 Hours (6 times/day):
     ↓
 Check 15 RSS Sources
     ↓
-Find New AI Articles
+Find Best AI Article (from last 4 hours)
     ↓
 AUTO-REWRITE with Claude (witty/educational tone)
 AUTO-GENERATE image with GPT-Image-1.5
     ↓
-Save Drafts for Your Review
+Save Draft for Your Review
     ↓
 You Review → Approve/Publish
 ```
 
 ### What Happens Now:
 
-1. **Monitoring** (FREE) - Checks 15 sources every hour
+1. **Monitoring** (FREE) - Checks 15 sources every 4 hours
 2. **Auto-Generation** - When articles found:
    - ✅ Claude rewrites immediately (witty tone for fun topics, serious for sensitive)
    - ✅ OpenAI generates photorealistic image
@@ -51,11 +51,9 @@ You Review → Approve/Publish
 - GPT-Image-1.5: $0.04
 - **Total: ~$0.043 per draft**
 
-**You only pay for drafts generated** (not for monitoring)
+**Target: 6 articles/day × $0.043 = ~$7.74/month**
 
-**Example:**
-- 3 articles found/day × $0.043 = $0.13/day = **$3.90/month**
-- You review and publish only the best
+You review all 6 daily drafts, publish your favorites!
 
 ### Commands:
 
@@ -87,13 +85,25 @@ python3 publish-draft.py skip
 - `.article-drafts.json` - Drafts waiting for review
 - `.review-digest.txt` - Human-readable draft summary
 
+### Schedule (6 Articles/Day Target):
+
+| Run # | Time (UTC) |
+|-------|------------|
+| 1 | ~8:30 AM |
+| 2 | ~12:30 PM |
+| 3 | ~4:30 PM |
+| 4 | ~8:30 PM |
+| 5 | ~12:30 AM |
+| 6 | ~4:30 AM |
+
 ### Status:
 
-- ✅ Daemon running (PID: 232758)
+- ✅ Daemon running (PID: 233176)
 - ✅ Auto-generation enabled
-- ✅ Next check: ~1 hour
-- ✅ Will notify when drafts ready
+- ✅ Schedule: Every 4 hours (6×/day)
+- ✅ Target: ~6 articles/day
+- ✅ Next check: ~12:30 PM UTC
 
 ---
 
-**Ready! I'll message you when first drafts are generated.** 🚀
+**Ready! You'll receive ~6 draft articles per day for review.** 🚀
