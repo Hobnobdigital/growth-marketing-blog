@@ -1,0 +1,488 @@
+{
+  "name": "Pulse AI - Content Engine",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "id": "trigger-schedule",
+      "name": "Schedule: Every 2 Hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://openai.com/blog/rss.xml"
+      },
+      "id": "rss-openai",
+      "name": "RSS: OpenAI Blog",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 100]
+    },
+    {
+      "parameters": {
+        "url": "https://www.marktechpost.com/feed/"
+      },
+      "id": "rss-marktechpost",
+      "name": "RSS: MarkTechPost",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 200]
+    },
+    {
+      "parameters": {
+        "url": "https://huggingface.co/blog/feed.xml"
+      },
+      "id": "rss-huggingface",
+      "name": "RSS: Hugging Face",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+      },
+      "id": "rss-techcrunch",
+      "name": "RSS: TechCrunch AI",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 400]
+    },
+    {
+      "parameters": {
+        "url": "https://venturebeat.com/category/ai/feed/"
+      },
+      "id": "rss-venturebeat",
+      "name": "RSS: VentureBeat AI",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 500]
+    },
+    {
+      "parameters": {
+        "url": "https://blog.google/technology/ai/rss/"
+      },
+      "id": "rss-google",
+      "name": "RSS: Google AI",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 600]
+    },
+    {
+      "parameters": {
+        "url": "https://www.anthropic.com/news/rss.xml"
+      },
+      "id": "rss-anthropic",
+      "name": "RSS: Anthropic",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 700]
+    },
+    {
+      "parameters": {
+        "url": "https://www.therundown.ai/rss"
+      },
+      "id": "rss-rundown",
+      "name": "RSS: The Rundown AI",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 800]
+    },
+    {
+      "parameters": {
+        "mode": "mergeByPosition"
+      },
+      "id": "merge-sources",
+      "name": "Merge All Sources",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [700, 450]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Aggregate articles from all sources and filter for top AI-related content\nconst allItems = [];\n\n// Process each input (from merge node)\nfor (const input of $input.all()) {\n  if (input.json && Array.isArray(input.json)) {\n    for (const item of input.json) {\n      if (item.title && item.link) {\n        // Calculate AI relevance score\n        const title = item.title.toLowerCase();\n        const content = (item.contentSnippet || item.content || '').toLowerCase();\n        \n        const relevanceKeywords = [\n          'ai', 'artificial intelligence', 'llm', 'gpt', 'claude', 'gemini',\n          'model', 'neural', 'machine learning', 'deep learning', 'openai',\n          'anthropic', 'meta ai', 'google ai', 'training', 'inference',\n          'agent', 'multimodal', 'reasoning', 'chain-of-thought'\n        ];\n        \n        let relevanceScore = 0;\n        for (const keyword of relevanceKeywords) {\n          if (title.includes(keyword)) relevanceScore += 3;\n          if (content.includes(keyword)) relevanceScore += 1;\n        }\n        \n        // Check publication date (only articles from last 12 hours)\n        const pubDate = new Date(item.isoDate || item.pubDate);\n        const twelveHoursAgo = new Date(Date.now() - 12 * 60 * 60 * 1000);\n        \n        if (pubDate >= twelveHoursAgo && relevanceScore >= 2) {\n          allItems.push({\n            title: item.title,\n            link: item.link,\n            content: item.contentSnippet || item.content || '',\n            pubDate: pubDate.toISOString(),\n            source: item.creator || item.author || 'Unknown',\n            relevanceScore,\n            categories: item.categories || []\n          });\n        }\n      }\n    }\n  }\n}\n\n// Sort by relevance and date\nallItems.sort((a, b) => {\n  if (b.relevanceScore !== a.relevanceScore) {\n    return b.relevanceScore - a.relevanceScore;\n  }\n  return new Date(b.pubDate) - new Date(a.pubDate);\n});\n\n// Deduplicate by title similarity (simple approach)\nconst seen = new Set();\nconst unique = [];\nfor (const item of allItems) {\n  const key = item.title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 30);\n  if (!seen.has(key)) {\n    seen.add(key);\n    unique.push(item);\n  }\n}\n\n// Return top 3 articles\nreturn unique.slice(0, 3);"
+      },
+      "id": "aggregate-filter",
+      "name": "Aggregate & Filter Top 3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 450]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Check if we have articles to process\nconst articles = $input.all()[0].json;\nif (!articles || articles.length === 0) {\n  return [{ json: { skip: true, reason: 'No new articles found' } }];\n}\nreturn articles.map(a => ({ json: a }));"
+      },
+      "id": "check-articles",
+      "name": "Check Articles Exist",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1100, 450]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "body": "={{ JSON.stringify({\n  \"model\": \"claude-3-haiku-20240307\",\n  \"max_tokens\": 2000,\n  \"messages\": [{\n    \"role\": \"user\",\n    \"content\": `You are a witty, sharp tech journalist for Pulse AI - an AI news blog.\n\nWrite a compelling article based on this source material. Make it original, engaging, and completely rewritten.\n\nSOURCE TITLE: ${$json.title}\nSOURCE CONTENT: ${$json.content.slice(0, 3000)}\n\nRequirements:\n1. Headline: Catchy, informative, with dry humor if appropriate\n2. Tone: Smart, informed, witty but serious on important topics\n3. Length: 400-500 words\n4. Include reading time estimate\n5. Make it completely original - not traceable to source\n6. Category: Choose from [\"LLMs\", \"Enterprise AI\", \"Industry\", \"Research\", \"GenAI\"]\n\nReturn JSON format:\n{\n  \"title\": \"headline\",\n  \"category\": \"Category\",\n  \"readTime\": \"X min read\",\n  \"excerpt\": \"2-3 sentence summary\",\n  \"content\": \"article content with paragraphs separated by \\\\n\\\\n\",\n  \"source\": \"${$json.source}\",\n  \"originalLink\": \"${$json.link}\"\n}`\n  }]\n}) }}",
+        "headers": {
+          "anthropic-version": "2023-06-01",
+          "content-type": "application/json"
+        }
+      },
+      "id": "claude-rewrite",
+      "name": "Claude: Rewrite Article",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1300, 450]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Claude's response and clean up\nconst response = $input.first().json;\nlet content = response.content[0].text;\n\n// Extract JSON from response\nconst jsonMatch = content.match(/\\{[\\s\\S]*\\}/);\nif (jsonMatch) {\n  content = jsonMatch[0];\n}\n\ntry {\n  const article = JSON.parse(content);\n  \n  // Add metadata\n  article.id = article.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 50);\n  article.slug = article.id;\n  article.published_at = new Date().toISOString();\n  article.snippet = article.excerpt;\n  \n  return [{ json: article }];\n} catch (e) {\n  return [{ json: { error: 'Failed to parse', raw: content } }];\n}"
+      },
+      "id": "parse-article",
+      "name": "Parse & Format Article",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1500, 450]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "body": "={{ JSON.stringify({\n  \"model\": \"gpt-image-1.5\",\n  \"prompt\": `Photorealistic editorial illustration for tech news article about: ${$json.title}. ${$json.excerpt}. Modern, cinematic, purple and cyan neon accents. Clean professional aesthetic.`,\n  \"size\": \"1536x1024\",\n  \"quality\": \"high\"\n}) }}"
+      },
+      "id": "openai-image",
+      "name": "OpenAI: Generate Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1700, 450]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Save image and prepare final article\nconst fs = require('fs');\nconst path = require('path');\n\nconst article = $input.first().json;\nconst imageResponse = $input.all()[1].json;\n\n// Generate unique filename\nconst timestamp = Date.now();\nconst imageFileName = `${article.id}-${timestamp}.png`;\nconst imagePath = `/home/ec2-user/clawd/pulse-ai/public/images/${imageFileName}`;\n\n// Save image\nif (imageResponse.data && imageResponse.data[0].b64_json) {\n  const imageData = Buffer.from(imageResponse.data[0].b64_json, 'base64');\n  fs.writeFileSync(imagePath, imageData);\n}\n\n// Add image to article\narticle.image_url = `/images/${imageFileName}`;\narticle.images = [article.image_url];\narticle.source_attribution = `Based on ${article.source}`;\n\nreturn [{ json: article }];"
+      },
+      "id": "save-image",
+      "name": "Save Image & Build Post",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1900, 450]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/ec2-user/clawd/pulse-ai && cat public/posts/posts.json",
+        "execute": true
+      },
+      "id": "read-posts",
+      "name": "Read Existing Posts",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1900, 650]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge new article with existing posts\nconst fs = require('fs');\n\nconst newArticle = $input.all()[0].json;\nconst existingData = $input.all()[1].json;\n\nlet posts = [];\ntry {\n  posts = JSON.parse(existingData);\n} catch (e) {\n  posts = [];\n}\n\n// Add new article at the beginning\nposts.unshift(newArticle);\n\n// Keep only last 50 posts\nif (posts.length > 50) {\n  posts = posts.slice(0, 50);\n}\n\n// Write back\nconst outputPath = '/home/ec2-user/clawd/pulse-ai/public/posts/posts.json';\nfs.writeFileSync(outputPath, JSON.stringify(posts, null, 2));\n\nreturn [{ json: { success: true, article: newArticle, totalPosts: posts.length } }];"
+      },
+      "id": "merge-posts",
+      "name": "Merge & Save Posts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2100, 550]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/ec2-user/clawd/pulse-ai && git add -A && git commit -m \"auto: New article from Pulse AI engine\" && git push",
+        "execute": true
+      },
+      "id": "git-push",
+      "name": "Git Commit & Push",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2300, 550]
+    },
+    {
+      "parameters": {
+        "url": "https://pulse-ai-pearl.vercel.app",
+        "method": "GET"
+      },
+      "id": "trigger-redeploy",
+      "name": "Trigger Vercel Redeploy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [2500, 550]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "connections": {
+    "Schedule: Every 2 Hours": {
+      "main": [
+        [
+          {
+            "node": "RSS: OpenAI Blog",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS: MarkTechPost",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS: Hugging Face",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS: TechCrunch AI",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS: VentureBeat AI",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS: Google AI",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS: Anthropic",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS: The Rundown AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS: OpenAI Blog": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS: MarkTechPost": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "RSS: Hugging Face": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "RSS: TechCrunch AI": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "RSS: VentureBeat AI": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "RSS: Google AI": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "RSS: Anthropic": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "RSS: The Rundown AI": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 7
+          }
+        ]
+      ]
+    },
+    "Merge All Sources": {
+      "main": [
+        [
+          {
+            "node": "Aggregate & Filter Top 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate & Filter Top 3": {
+      "main": [
+        [
+          {
+            "node": "Check Articles Exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Articles Exist": {
+      "main": [
+        [
+          {
+            "node": "Claude: Rewrite Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude: Rewrite Article": {
+      "main": [
+        [
+          {
+            "node": "Parse & Format Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse & Format Article": {
+      "main": [
+        [
+          {
+            "node": "OpenAI: Generate Image",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Read Existing Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI: Generate Image": {
+      "main": [
+        [
+          {
+            "node": "Save Image & Build Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Image & Build Post": {
+      "main": [
+        [
+          {
+            "node": "Merge & Save Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Existing Posts": {
+      "main": [
+        [
+          {
+            "node": "Merge & Save Posts",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge & Save Posts": {
+      "main": [
+        [
+          {
+            "node": "Git Commit & Push",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Git Commit & Push": {
+      "main": [
+        [
+          {
+            "node": "Trigger Vercel Redeploy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
