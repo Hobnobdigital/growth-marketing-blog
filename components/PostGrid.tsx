@@ -24,10 +24,10 @@ export default function PostGrid({ posts }: { posts: Post[] }) {
         className="mb-10 md:mb-14"
       >
         <h2 className="text-3xl md:text-5xl font-[var(--font-display)] font-bold mb-3">
-          Latest <span className="text-gradient-neon">Intelligence</span>
+          Latest <span className="text-gradient-neon">Growth Tactics</span>
         </h2>
         <p className="text-ink-muted font-[var(--font-body)] text-lg max-w-xl">
-          Curated insights from the frontier of artificial intelligence
+          Real strategies that actually move the needle. No fluff, just results.
         </p>
       </motion.div>
 

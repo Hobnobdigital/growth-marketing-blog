@@ -44,14 +44,14 @@ export default function NewsletterSignup() {
               </span>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-[var(--font-display)] font-bold text-white mb-4 leading-tight">
-                Get the AI brief that
+                Get the growth hacks that
                 <br />
-                <span className="text-gradient-neon">10,000+ builders</span> read daily
+                <span className="text-gradient-neon">10,000+ marketers</span> actually use
               </h2>
 
               <p className="text-white/60 font-[var(--font-body)] text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-                Five minutes. Every morning. The most important AI developments,
-                distilled into plain English. No hype, no fluff.
+                Five minutes. Every morning. The best growth tactics, ad strategies, 
+                and conversion tips. Witty, casual, and actually useful.
               </p>
             </motion.div>
 

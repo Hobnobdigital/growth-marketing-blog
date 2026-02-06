@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Generate GPT-1.5 images for Growth Pulse articles"""
+"""Generate GPT-1.5 images for Growth Pulse articles
+
+Usage: python3 generate-images.py
+
+All images are photorealistic as if taken with an iPhone 16 in ultra HD.
+"""
 
 import os
 import base64
@@ -7,34 +12,14 @@ import requests
 
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
-images = [
-    {
-        "filename": "cookie-deprecation-marketing.png",
-        "prompt": "Photorealistic image of digital privacy concept. A broken chocolate chip cookie dissolving into digital particles and binary code. Modern minimalist setting with deep purple and cyan neon lighting accents. Professional marketing aesthetic, hyper realistic, 8K quality, dramatic cinematic lighting."
-    },
-    {
-        "filename": "linkedin-algorithm-strategy.png",
-        "prompt": "Photorealistic professional networking concept. A sleek modern smartphone displaying a LinkedIn-style interface with engagement metrics floating above it in holographic displays. Business professionals silhouettes in background. Deep blue and cyan neon lighting. Hyper realistic, 8K quality, professional marketing photography style."
-    },
-    {
-        "filename": "retention-ltv-strategy.png",
-        "prompt": "Photorealistic business growth concept. An ascending staircase made of golden coins and graphs leading upward, representing customer lifetime value growth. Modern corporate setting with subtle magenta and cyan neon accent lighting. Hyper realistic, 8K quality, cinematic business photography."
-    },
-    {
-        "filename": "tiktok-shop-commerce.png",
-        "prompt": "Photorealistic social commerce concept. A modern smartphone surrounded by floating shopping bags and product boxes with TikTok-style interface elements. Young diverse consumers in background. Vibrant pink, cyan, and yellow neon lighting. Hyper realistic, 8K quality, trendy e-commerce aesthetic."
-    },
-    {
-        "filename": "ai-personalization-marketing.png",
-        "prompt": "Photorealistic AI marketing concept. A futuristic customer profile hologram with data streams and personalization nodes connected in a neural network pattern. Modern tech office setting with cyan and magenta neon lighting. Hyper realistic, 8K quality, futuristic marketing technology aesthetic."
-    }
-]
-
-print("Generating GPT-1.5 images for Growth Pulse articles...")
-
-for img in images:
+def generate_image(prompt, filename):
+    """Generate a photorealistic image with GPT-1.5"""
+    
+    # Add photorealistic iPhone 16 instruction to every prompt
+    full_prompt = f"{prompt} Photorealistic photo as if it was taken with an iPhone 16 in ultra HD."
+    
     try:
-        print(f"\nGenerating: {img['filename']}")
+        print(f"Generating: {filename}")
         response = requests.post(
             "https://api.openai.com/v1/images/generations",
             headers={
@@ -43,7 +28,7 @@ for img in images:
             },
             json={
                 "model": "gpt-image-1.5",
-                "prompt": img["prompt"],
+                "prompt": full_prompt,
                 "size": "1536x1024",
                 "quality": "high"
             },
@@ -54,15 +39,56 @@ for img in images:
             data = response.json()
             b64 = data['data'][0]['b64_json']
             
-            path = f"/home/ec2-user/clawd/growth-marketing-blog/public/images/{img['filename']}"
+            path = f"/home/ec2-user/clawd/growth-marketing-blog/public/images/{filename}"
             
             with open(path, "wb") as f:
                 f.write(base64.b64decode(b64))
             
-            print(f"✅ Saved: {img['filename']}")
+            print(f"✅ Saved: {filename}")
+            return True
         else:
             print(f"❌ Error {response.status_code}: {response.text[:200]}")
+            return False
     except Exception as e:
         print(f"❌ Error: {e}")
+        return False
 
-print("\n✅ Image generation complete!")
+# Article images configuration
+articles = [
+    {
+        "id": "end-of-third-party-cookies",
+        "filename": "cookie-deprecation-marketing.png",
+        "prompt": "A close-up of a chocolate chip cookie crumbling and dissolving into digital pixels and binary code on a clean white desk. Modern minimalist office setting with soft natural lighting. Professional product photography style."
+    },
+    {
+        "id": "linkedin-algorithm-2026",
+        "filename": "linkedin-algorithm-strategy.png",
+        "prompt": "A professional's hand holding an iPhone showing the LinkedIn app with engagement metrics floating above the screen in holographic style. Modern coworking space background with glass walls. Business casual atmosphere."
+    },
+    {
+        "id": "retention-new-acquisition",
+        "filename": "retention-ltv-strategy.png",
+        "prompt": "A golden staircase made of coins ascending upward with soft glowing light at the top. Clean white background with subtle shadows. Minimalist financial concept photography. Elegant and aspirational."
+    },
+    {
+        "id": "tiktok-shop-revolution",
+        "filename": "tiktok-shop-commerce.png",
+        "prompt": "A young person's hands holding an iPhone with shopping bags floating around it in a bedroom setting. TikTok interface visible on screen. Natural bedroom lighting with colorful decor. Lifestyle photography."
+    },
+    {
+        "id": "ai-personalization-scale",
+        "filename": "ai-personalization-marketing.png",
+        "prompt": "A futuristic transparent holographic display showing customer profile data and connection nodes floating above a modern desk. Tech office environment with soft blue ambient lighting. Sci-fi but realistic aesthetic."
+    }
+]
+
+print("🎨 Generating GPT-1.5 images for Growth Pulse...")
+print("All images will be photorealistic iPhone 16 style.\n")
+
+success_count = 0
+for article in articles:
+    if generate_image(article["prompt"], article["filename"]):
+        success_count += 1
+
+print(f"\n✅ Complete! Generated {success_count}/{len(articles)} images.")
+print(f"📁 Location: /home/ec2-user/clawd/growth-marketing-blog/public/images/")
