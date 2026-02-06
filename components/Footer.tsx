@@ -11,10 +11,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-[var(--font-display)] font-bold mb-3">
-              PULSE<span className="text-neon-cyan">.</span>AI
+              GROWTH<span className="text-neon-cyan">.</span>PULSE
             </h3>
             <p className="text-ink-muted text-sm font-[var(--font-body)] leading-relaxed max-w-xs">
-              Your daily dose of AI intelligence. Curated with precision,
+              Your daily dose of growth marketing intelligence. Curated with precision,
               delivered with clarity.
             </p>
           </div>
@@ -71,7 +71,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-10 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-ink-faint font-[var(--font-display)]">
-            &copy; 2026 Pulse AI. All rights reserved.
+            &copy; 2026 Growth Pulse. All rights reserved.
           </p>
           <div className="flex gap-6">
             {['Privacy', 'Terms', 'Contact'].map((label) => (

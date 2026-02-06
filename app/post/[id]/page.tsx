@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PostPageProps) {
   const post = postsData.find((p) => p.id === id);
   if (!post) return {};
   return {
-    title: `${post.title} — Pulse AI`,
+    title: `${post.title} — Growth Pulse`,
     description: post.snippet,
   };
 }

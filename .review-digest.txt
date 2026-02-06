@@ -1,9 +1,0 @@
-📰 PULSE AI - ARTICLES READY FOR REVIEW
-Generated: 2026-02-06 17:57 UTC
-Total Drafts: 0
-
-
-COMMANDS:
-  python3 publish-draft.py 1,2,3    - Publish articles 1, 2, and 3
-  python3 publish-draft.py all      - Publish all drafts
-  python3 publish-draft.py skip     - Discard all drafts

@@ -38,7 +38,7 @@ export default function Header() {
             <Link href="/" className="flex items-center group">
               <motion.div whileHover={{ scale: 1.03 }} className="relative">
                 <span className="text-2xl md:text-3xl font-[var(--font-display)] font-bold tracking-tight">
-                  PULSE<span className="text-neon-cyan">.</span>AI
+                  GROWTH<span className="text-neon-cyan">.</span>PULSE
                 </span>
                 <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow group-hover:w-full transition-all duration-500" />
               </motion.div>

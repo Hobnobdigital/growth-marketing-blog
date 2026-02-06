@@ -1,8 +1,6 @@
-# PULSE.AI 🚀
+# Growth Pulse 🚀
 
-**Your daily dose of AI intelligence.** A production-grade AI news aggregation website with Editorial Neon Brutalism aesthetics.
-
-📚 **[Complete Project Wiki →](PROJECT-WIKI.md)** — Start here for comprehensive documentation
+**Your daily dose of growth marketing intelligence.** A production-grade marketing news aggregation website with Editorial Neon Brutalism aesthetics.
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
@@ -28,6 +26,7 @@
 - **Animations:** Staggered fade-ins, parallax effects, hover glows
 - **SEO Ready:** Optimized metadata and semantic HTML
 - **Performance:** Next.js App Router with static generation
+- **Images:** GPT-1.5 generated photorealistic imagery
 
 ## 🚀 Quick Start
 
@@ -40,8 +39,8 @@
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd pulse-ai
+git clone https://github.com/Hobnobdigital/growth-marketing-blog.git
+cd growth-marketing-blog
 
 # Install dependencies
 npm install
@@ -55,7 +54,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the site.
 ## 📁 Project Structure
 
 ```
-pulse-ai/
+growth-marketing-blog/
 ├── app/                      # Next.js App Router
 │   ├── layout.tsx           # Root layout with fonts
 │   ├── page.tsx             # Homepage
@@ -69,6 +68,7 @@ pulse-ai/
 │   ├── Footer.tsx           # Site footer
 │   └── ScrollProgress.tsx   # Reading progress bar
 ├── public/
+│   ├── images/              # GPT-1.5 generated images
 │   └── posts/
 │       └── posts.json       # Content database
 └── tailwind.config.ts       # Tailwind + custom theme
@@ -80,29 +80,37 @@ Posts are stored in `/public/posts/posts.json`:
 
 ```json
 {
-  "posts": [
-    {
-      "id": "unique-slug",
-      "title": "Post Title",
-      "content": "Full markdown content...",
-      "snippet": "Short preview text",
-      "image_url": "https://example.com/image.jpg",
-      "category": "LLMs",
-      "read_time": "5 min read",
-      "published_at": "2026-02-06T10:00:00Z",
-      "tone": "humor-allowed"
-    }
-  ]
+  "id": "unique-slug",
+  "title": "Post Title",
+  "content": "Full markdown content...",
+  "snippet": "Short preview text",
+  "image_url": "/images/image.png",
+  "category": "Digital Marketing",
+  "read_time": "5 min read",
+  "published_at": "2026-02-06T10:00:00Z"
 }
 ```
 
-### Adding New Posts
+### Categories
+- **Digital Marketing** - SEO, SEM, content marketing
+- **B2B Marketing** - LinkedIn, ABM, sales enablement
+- **B2C Marketing** - Social commerce, DTC, retail
+- **Growth Hacking** - Retention, CRO, viral loops
+- **Marketing Tech** - AI, automation, analytics
 
-1. Add a new post object to `posts.json`
-2. Use a unique `id` (becomes the URL slug)
-3. Write content in Markdown format
-4. Provide an image URL (Unsplash or hosted)
-5. Choose category: `LLMs`, `GenAI`, `Research`, or `Industry`
+## 🎨 Content Sources
+
+Articles sourced and rewritten from:
+1. Search Engine Journal
+2. Search Engine Land
+3. HubSpot Marketing Blog
+4. Neil Patel Blog
+5. Marketing Land
+6. Content Marketing Institute
+7. GrowthHackers
+8. Reforge
+9. Demand Curve
+10. SaaStr
 
 ## 🎨 Customization
 
@@ -128,10 +136,6 @@ Change fonts in `app/layout.tsx`:
 import { Space_Grotesk, Newsreader } from "next/font/google";
 ```
 
-### Animations
-
-Adjust Framer Motion settings in components or add new animations in `globals.css`.
-
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
@@ -148,11 +152,7 @@ vercel
 
 ### Environment Variables
 
-No environment variables required for basic setup. For production:
-
-- Configure custom domain in Vercel
-- Set up analytics (optional)
-- Configure Content Security Policy (optional)
+No environment variables required for basic setup.
 
 ### Build for Production
 
@@ -178,7 +178,7 @@ npm start
 - **Styling:** Tailwind CSS
 - **Animations:** Framer Motion
 - **Markdown:** react-markdown
-- **Images:** Next.js Image optimization
+- **Images:** Next.js Image optimization + GPT-1.5 generation
 - **Fonts:** Google Fonts (Space Grotesk, Newsreader)
 
 ## 📱 Browser Support
@@ -202,7 +202,7 @@ MIT License - feel free to use this project for personal or commercial purposes.
 
 ## 🎯 Roadmap
 
-- [ ] Email subscription integration (Mailchimp/ConvertKit)
+- [ ] Email subscription integration
 - [ ] RSS feed generation
 - [ ] Search functionality
 - [ ] Category filtering
@@ -214,15 +214,12 @@ MIT License - feel free to use this project for personal or commercial purposes.
 
 ## 💡 Design Credits
 
-Inspired by:
-- [The Rundown AI](https://therundown.ai) - Editorial excellence
-- Neon Brutalism aesthetic
-- Modern AI/tech publications
+Inspired by Pulse AI - Editorial Neon Brutalism aesthetic
 
-Built with ❤️ by the Pulse AI team.
+Built with ❤️ by the Growth Pulse team.
 
 ---
 
 **Questions?** Open an issue or reach out!
 
-🔗 [Live Demo](#) | 📧 [Contact](#) | 🐦 [Twitter](#)
+🔗 [Live Demo](https://growth-marketing-blog.vercel.app) | 📧 [Contact](#) | 🐦 [Twitter](#)

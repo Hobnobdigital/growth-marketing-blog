@@ -20,20 +20,20 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Pulse AI — Your Daily AI Intelligence Brief",
+  title: "Growth Pulse — Your Daily Dose of Growth Marketing Intelligence",
   description:
-    "Stay ahead with curated AI news, research breakthroughs, and industry insights. Bite-sized intelligence for busy builders.",
+    "Stay ahead with curated growth marketing insights, strategies, and industry trends. Bite-sized intelligence for busy marketers.",
   openGraph: {
-    title: "Pulse AI — Your Daily AI Intelligence Brief",
+    title: "Growth Pulse — Your Daily Dose of Growth Marketing Intelligence",
     description:
-      "Curated AI news, research breakthroughs, and industry insights.",
+      "Curated growth marketing insights, strategies, and industry trends.",
     type: "website",
-    siteName: "Pulse AI",
+    siteName: "Growth Pulse",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pulse AI",
-    description: "Your daily dose of AI intelligence.",
+    title: "Growth Pulse",
+    description: "Your daily dose of growth marketing intelligence.",
   },
 };
 
