@@ -254,7 +254,7 @@
             },
             {
               "name": "prompt",
-              "value": "={{ \"Abstract editorial illustration representing \" + $json.keyConcept + \", vibrant neon accents, minimalist tech aesthetic, professional, high contrast\" }}"
+              "value": "={{ $json.imageStyle === 'photorealistic' ? 'Hyper-realistic editorial photograph of ' + $json.keyConcept + ', professional studio lighting, high detail, modern tech aesthetic, shallow depth of field, 8K quality, photorealistic' : 'Modern illustrated editorial artwork of ' + $json.keyConcept + ', vibrant colors, clean vector style, tech aesthetic, professional illustration' }}"
             },
             {
               "name": "quality",
@@ -313,7 +313,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Build complete post object\nconst postData = $('Parse & Calculate Read Time').item.json;\nconst imageId = postData.id;\n\nconst post = {\n  id: postData.id,\n  slug: postData.slug,\n  title: postData.title,\n  snippet: postData.snippet,\n  content: postData.content,\n  category: postData.category,\n  readTime: postData.readTime,\n  image: `/images/${imageId}.jpg`,\n  source: postData.source,\n  originalLink: postData.originalLink,\n  publishedAt: postData.publishedAt\n};\n\nreturn { json: { post } };"
+        "jsCode": "// Build complete post object\nconst postData = $('Parse & Calculate Read Time').item.json;\nconst imageId = postData.id;\n\nconst post = {\n  id: postData.id,\n  slug: postData.slug,\n  title: postData.title,\n  snippet: postData.snippet,\n  content: postData.content,\n  category: postData.category,\n  readTime: postData.readTime,\n  image: `/images/${imageId}.jpg`,\n  source: postData.source,\n  sourceAttribution: postData.sourceAttribution,\n  originalLink: postData.originalLink,\n  publishedAt: postData.publishedAt\n};\n\nreturn { json: { post } };"
       },
       "id": "code-build-post",
       "name": "Build Post Object",

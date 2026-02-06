@@ -3,7 +3,7 @@ import PostGrid from '@/components/PostGrid';
 import postsData from '@/public/posts/posts.json';
 
 export default function Home() {
-  const posts = postsData.posts;
+  const posts = postsData;
   const featuredPost = posts[0];
   const otherPosts = posts.slice(1);
 

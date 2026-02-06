@@ -16,27 +16,28 @@ const samplePosts = [
   {
     title: "GPT-5 Rumors Heat Up: What We Know So Far",
     snippet: "OpenAI's next flagship model might be closer than we think. Industry insiders hint at major improvements in reasoning and multimodal capabilities.",
-    content: `The AI community is buzzing with speculation about GPT-5, OpenAI's rumored next-generation language model. While the company remains tight-lipped, recent job postings and patent filings offer tantalizing clues.
+    sourceAttribution: "Originally reported by OpenAI Blog",
+    content: `Look, the AI community is buzzing with speculation about GPT-5, and honestly? OpenAI's rumored next-gen model might actually be closer than we think. While the company's staying tight-lipped (as usual), recent job postings and patent filings are offering some tantalizing clues.
 
-## What's Different This Time?
+## Here's What's Different This Time
 
-Unlike GPT-4's surprise launch, OpenAI seems to be taking a more measured approach. Sources close to the project suggest the model is undergoing extensive safety testing—a response to criticism about rushed AI deployment.
+Unlike GPT-4's surprise launch, OpenAI's taking a more measured approach. Sources close to the project say the model's undergoing extensive safety testing—basically a response to all the criticism about rushed AI deployment.
 
-**Key rumored improvements:**
-- Enhanced reasoning capabilities (think PhD-level problem solving)
-- True multimodal understanding (video, audio, images seamlessly integrated)
-- Better factual accuracy and reduced hallucinations
+**The rumored improvements:**
+- Enhanced reasoning (we're talking PhD-level problem solving)
+- True multimodal understanding (video, audio, images—all seamlessly integrated)
+- Better factual accuracy and fewer hallucinations
 - Longer context windows (possibly 1M+ tokens)
 
 ## The Elephant in the Room
 
-Compute costs are astronomical. Training a model of this scale could run $100M+. That's why OpenAI's recent partnership with Microsoft's Azure infrastructure makes strategic sense.
+Look, compute costs are astronomical. Training something this big could run $100M+. That's why OpenAI's recent partnership with Microsoft's Azure infrastructure makes sense.
 
-But here's the twist: some researchers question whether scaling alone will deliver the promised AGI. We might be hitting the "diminishing returns" phase of the transformer architecture.
+But here's the thing: some researchers are questioning whether scaling alone will deliver the promised AGI. We might be hitting the "diminishing returns" phase of the transformer architecture.
 
-## When Can We Expect It?
+## When's It Coming?
 
-If history is any guide, late 2025 or early 2026 seems plausible. But don't hold your breath—GPT-4 took longer than expected, and safety reviews are more stringent now.
+If history's any guide, late 2025 or early 2026 seems plausible. But don't hold your breath—GPT-4 took longer than expected, and safety reviews are more stringent now.
 
 One thing's certain: whatever drops next will reshape the AI landscape. Again.`,
     category: "LLMs",
@@ -49,18 +50,19 @@ One thing's certain: whatever drops next will reshape the AI landscape. Again.`,
   {
     title: "Anthropic's Constitutional AI: The Ethics Revolution We Needed?",
     snippet: "Claude's unique training approach promises AI that's helpful, harmless, and honest. But can rules-based alignment really scale?",
-    content: `Anthropic just published a deep dive into Constitutional AI (CAI), the framework powering Claude's remarkably thoughtful responses. It's a fascinating departure from standard RLHF approaches.
+    sourceAttribution: "Originally reported by Anthropic",
+    content: `Anthropic just published a deep dive into Constitutional AI (CAI)—the framework that's powering Claude's remarkably thoughtful responses. And honestly? It's a fascinating departure from standard RLHF approaches.
 
 ## The Constitution Concept
 
-Instead of relying solely on human feedback, CAI trains models against a written "constitution"—explicit principles about helpfulness, honesty, and harmlessness. Think of it as embedding ethical guidelines directly into the training process.
+Here's the idea: instead of relying solely on human feedback, CAI trains models against a written "constitution"—explicit principles about helpfulness, honesty, and harmlessness. Basically, they're embedding ethical guidelines directly into the training process.
 
 **Example principles:**
-- "Choose the response that is least likely to be harmful"
+- "Choose the response that's least likely to be harmful"
 - "Prioritize responses that respect user privacy"
 - "Avoid outputs that could enable illegal activities"
 
-## Why This Matters
+## Why This Actually Matters
 
 Traditional RLHF can be inconsistent. Human raters disagree, have biases, and sometimes reward clever-sounding nonsense. CAI offers something more deterministic.
 
@@ -68,13 +70,13 @@ The technique also makes AI behavior more *auditable*. When Claude refuses a req
 
 ## The Skeptics Weigh In
 
-Not everyone's convinced. Critics argue that written rules can't capture moral complexity. What happens when principles conflict? Who decides what goes in the "constitution"?
+Look, not everyone's convinced. Critics argue that written rules can't capture moral complexity. What happens when principles conflict? Who decides what goes in the "constitution"?
 
 Fair points. But Anthropic's approach at least makes the tradeoffs transparent. That's progress.
 
 ## Real-World Impact
 
-Early enterprise adopters report fewer "oh no" moments—those times when AI confidently suggests something dangerous or absurd. For high-stakes applications (healthcare, legal, finance), that reliability premium matters.
+Early enterprise adopters are reporting fewer "oh no" moments—you know, those times when AI confidently suggests something dangerous or absurd. For high-stakes applications (healthcare, legal, finance), that reliability premium really matters.
 
 Constitutional AI won't solve alignment overnight. But it's a serious attempt at building AI systems you can actually trust.`,
     category: "Research",
@@ -87,19 +89,20 @@ Constitutional AI won't solve alignment overnight. But it's a serious attempt at
   {
     title: "Stable Diffusion 3.5 Drops—And It's Open Source",
     snippet: "Stability AI's latest image model rivals Midjourney and DALL·E 3, but you can run it on your own hardware. Game changer.",
-    content: `The AI art world just got a seismic shake-up. Stable Diffusion 3.5 is here, and it's legitimately competitive with closed-source giants.
+    sourceAttribution: "Originally reported by Hugging Face",
+    content: `The AI art world just got a seismic shake-up. Stable Diffusion 3.5 is here, and look—it's legitimately competitive with closed-source giants.
 
 ## What's New?
 
 **Technical improvements:**
 - Multimodal transformer architecture (borrowed from LLM advances)
-- Better text rendering (finally, legible signs and logos!)
+- Better text rendering (finally! Legible signs and logos!)
 - Improved prompt adherence
 - Faster generation times
 
-But the real story? It's fully open-source and runs locally on consumer GPUs.
+But here's the real story: it's fully open-source and runs locally on consumer GPUs.
 
-## Why Open Source Matters
+## Why Open Source Actually Matters
 
 When Midjourney and DALL·E 3 dominate, creators are beholden to corporate policies and API costs. Want to generate 1,000 variations for a client project? That's $$$.
 
@@ -107,7 +110,7 @@ SD 3.5 flips the script. Download the weights, run it on your RTX 4090, and you'
 
 ## The Art Community Reacts
 
-Professional illustrators have mixed feelings. Some see it as democratizing creativity. Others worry about commodification of their skills.
+Professional illustrators have mixed feelings. Some see it as democratizing creativity. Others are worried about commodification of their skills.
 
 The "AI art debate" rages on, but one thing's undeniable: the tech keeps improving. SD 3.5's outputs are *seriously* impressive.
 
@@ -117,7 +120,7 @@ For agencies and creative studios, this changes the economics. In-house image ge
 
 ## What's Next?
 
-Stability AI hinted at video diffusion models using similar architecture. If they nail that and keep it open-source? The creative industry will never be the same.
+Stability AI's hinted at video diffusion models using similar architecture. If they nail that and keep it open-source? The creative industry will never be the same.
 
 Download it. Play with it. Then buckle up—things are about to get weird (in the best way).`,
     category: "GenAI",
@@ -130,7 +133,8 @@ Download it. Play with it. Then buckle up—things are about to get weird (in th
   {
     title: "Google's Gemini 2.0: Multimodal AI Done Right?",
     snippet: "After a rocky start, Google's AI model finally delivers on its promise. Native video understanding and real-time processing set new benchmarks.",
-    content: `Remember Gemini's launch drama? The skepticism about "vaporware" demos? Well, Gemini 2.0 is here to change the narrative—and it's legit.
+    sourceAttribution: "Originally reported by Google AI Blog",
+    content: `Remember Gemini's launch drama? The skepticism about "vaporware" demos? Well, Gemini 2.0 is here to change the narrative—and look, it's actually legit.
 
 ## The Multimodal Promise, Delivered
 
@@ -152,7 +156,7 @@ More importantly, it *feels* different in practice. You can throw messy real-wor
 
 **Healthcare:** Analyze medical imaging with patient history and doctor's notes in context
 
-**Education:** Tutor that watches you solve problems and offers real-time guidance
+**Education:** Tutors that watch you solve problems and offer real-time guidance
 
 **Accessibility:** Live captioning and scene description that understands nuance
 
@@ -164,7 +168,7 @@ Google's TPU v5 chips are purpose-built for this. They can process video streams
 
 ## Privacy Considerations
 
-Here's the catch: all that multimodal analysis requires serious compute. Cloud-only for now, which means data leaves your device. Google promises encryption and access controls, but trust remains earned, not given.
+Here's the catch: all that multimodal analysis requires serious compute. Cloud-only for now, which means data leaves your device. Google promises encryption and access controls, but trust is earned, not given.
 
 ## Bottom Line
 
@@ -181,13 +185,14 @@ The future of AI isn't just smarter text—it's understanding the world the way 
   {
     title: "Why Your LLM Hallucinates (And How Researchers Are Fixing It)",
     snippet: "New paper from Stanford reveals the root cause of AI 'hallucinations' and proposes elegant solutions. The fix might surprise you.",
-    content: `Hallucinations—when AI confidently states false information—are the Achilles' heel of LLMs. A groundbreaking Stanford/MIT paper finally explains *why* they happen and offers practical solutions.
+    sourceAttribution: "Originally reported by ArXiv",
+    content: `Hallucinations—when AI confidently states false information—are basically the Achilles' heel of LLMs. A groundbreaking Stanford/MIT paper finally explains *why* they happen and offers practical solutions.
 
 ## The Core Problem
 
 LLMs are trained to predict the next token. Always. Even when they should say "I don't know."
 
-The paper demonstrates that models develop "overconfidence bias" during training. They learn that *some answer* gets more reward than admitting uncertainty. So they make stuff up.
+The paper demonstrates that models develop "overconfidence bias" during training. They learn that *some answer* gets more reward than admitting uncertainty. So they just make stuff up.
 
 ## The Smoking Gun Experiment
 
@@ -211,7 +216,7 @@ Anthropic's Claude 3 has noticeably better uncertainty handling. Google's Gemini
 
 ## The Path Forward
 
-We won't eliminate hallucinations entirely. Even humans misremember and confabulate. But we can make AI systems that:
+Look, we won't eliminate hallucinations entirely. Even humans misremember and confabulate. But we can make AI systems that:
 - Know what they don't know
 - Communicate uncertainty honestly
 - Default to verification over invention
@@ -250,6 +255,7 @@ function generatePost(data, index) {
     readTime: data.readTime,
     image: data.image,
     source: data.source,
+    sourceAttribution: data.sourceAttribution,
     originalLink: data.originalLink,
     publishedAt: data.publishedAt
   };
