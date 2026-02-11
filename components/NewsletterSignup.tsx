@@ -46,7 +46,7 @@ export default function NewsletterSignup() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-[var(--font-display)] font-bold text-white mb-4 leading-tight">
                 Get the growth hacks that
                 <br />
-                <span className="text-gradient-neon">10,000+ marketers</span> actually use
+                <span className="text-gradient-neon">500+ marketers</span> actually use
               </h2>
 
               <p className="text-white/60 font-[var(--font-body)] text-lg max-w-xl mx-auto mb-8 leading-relaxed">
