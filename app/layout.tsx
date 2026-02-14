@@ -49,7 +49,7 @@ export default function RootLayout({
     >
       <body className="bg-white text-ink antialiased">
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen pt-4">{children}</main>
         <Footer />
       </body>
     </html>
