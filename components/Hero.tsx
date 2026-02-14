@@ -37,7 +37,7 @@ export default function Hero({ post }: { post: Post }) {
             className="group relative overflow-hidden rounded-2xl cursor-pointer bg-surface-dim"
           >
             {/* Image Container - Title Below Image to Prevent Cutoff */}
-            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden">
+            <div className="relative w-full aspect-[3/2] md:aspect-[16/9] overflow-hidden">
               <Image
                 src={post.image_url}
                 alt={post.title}
@@ -49,7 +49,7 @@ export default function Hero({ post }: { post: Post }) {
             </div>
 
             {/* Content Below Image - No Overlay, No Cutoff */}
-            <div className="bg-ink p-6 sm:p-8 md:p-10">
+            <div className="bg-ink p-8 sm:p-12 md:p-16">
               {/* Category */}
               <div className="mb-4">
                 <span className="inline-block px-4 py-1.5 bg-neon-cyan/90 text-ink text-xs font-[var(--font-display)] font-bold uppercase tracking-wider rounded-full">
@@ -59,7 +59,7 @@ export default function Hero({ post }: { post: Post }) {
 
               {/* Title - Full Width, No Clamping */}
               <motion.h1
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[var(--font-display)] font-bold text-white mb-4 leading-[1.2]"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[var(--font-display)] font-bold text-white mb-6 leading-tight"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
