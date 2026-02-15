@@ -3,10 +3,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const searchParams = useSearchParams();
+  const currentCategory = searchParams.get('category');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -19,6 +22,20 @@ export default function Header() {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
+
+  const navLinks = [
+    { label: 'Home', href: '/', color: 'hover:text-neon-cyan', active: !currentCategory },
+    { label: 'Advertising', href: '/?category=advertising', color: 'hover:text-neon-magenta', active: currentCategory === 'advertising' },
+    { label: 'Tech & Analytics', href: '/?category=tech', color: 'hover:text-neon-yellow', active: currentCategory === 'tech' },
+  ];
+
+  const handleSubscribeClick = () => {
+    setMobileOpen(false);
+    const newsletter = document.getElementById('newsletter');
+    if (newsletter) {
+      newsletter.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -45,27 +62,27 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              {[
-                { label: 'Latest', href: '/', color: 'hover:text-neon-cyan' },
-                { label: 'Research', href: '#', color: 'hover:text-neon-magenta' },
-                { label: 'Industry', href: '#', color: 'hover:text-neon-yellow' },
-              ].map((link) => (
+            <nav className="hidden md:flex items-center gap-6">
+              {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-[var(--font-display)] font-medium text-ink-muted ${link.color} transition-colors duration-200`}
+                  className={`text-sm font-[var(--font-display)] font-medium transition-colors duration-200 ${
+                    link.active 
+                      ? 'text-neon-cyan' 
+                      : `text-ink-muted ${link.color}`
+                  }`}
                 >
                   {link.label}
                 </Link>
               ))}
 
-              <Link
-                href="#newsletter"
+              <button
+                onClick={handleSubscribeClick}
                 className="ml-2 px-5 py-2 bg-ink text-white text-sm font-[var(--font-display)] font-semibold rounded-lg hover:bg-neon-cyan hover:text-ink transition-all duration-200"
               >
                 Subscribe
-              </Link>
+              </button>
             </nav>
 
             {/* Mobile Hamburger */}
@@ -107,11 +124,7 @@ export default function Header() {
             className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center md:hidden"
           >
             <nav className="flex flex-col items-center gap-8">
-              {[
-                { label: 'Latest', href: '/' },
-                { label: 'Research', href: '#' },
-                { label: 'Industry', href: '#' },
-              ].map((link, i) => (
+              {navLinks.map((link, i) => (
                 <motion.div
                   key={link.label}
                   initial={{ opacity: 0, y: 20 }}
@@ -121,7 +134,9 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-3xl font-[var(--font-display)] font-bold text-ink hover:text-neon-cyan transition-colors"
+                    className={`text-3xl font-[var(--font-display)] font-bold transition-colors ${
+                      link.active ? 'text-neon-cyan' : 'text-ink hover:text-neon-cyan'
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -132,13 +147,12 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <Link
-                  href="#newsletter"
-                  onClick={() => setMobileOpen(false)}
-                  className="mt-4 px-8 py-3 bg-ink text-white text-lg font-[var(--font-display)] font-semibold rounded-lg"
+                <button
+                  onClick={handleSubscribeClick}
+                  className="mt-4 px-8 py-3 bg-ink text-white text-lg font-[var(--font-display)] font-semibold rounded-lg hover:bg-neon-cyan hover:text-ink transition-all"
                 >
                   Subscribe
-                </Link>
+                </button>
               </motion.div>
             </nav>
           </motion.div>
