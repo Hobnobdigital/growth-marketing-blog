@@ -1,48 +1,36 @@
-'use client';
-
 import Hero from '@/components/Hero';
 import PostGrid from '@/components/PostGrid';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import postsData from '@/public/posts/posts.json';
-import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
+import FilteredContent from '@/components/FilteredContent';
+
+// Generate static params for all category combinations
+export function generateStaticParams() {
+  return [
+    { category: [] },
+    { category: ['advertising'] },
+    { category: ['tech'] },
+  ];
+}
+
+// Force dynamic for search params
+export const dynamic = 'force-dynamic';
+
+function HomeContent() {
+  return (
+    <Suspense fallback={
+      <>
+        <Hero post={postsData[0]} />
+        <PostGrid posts={postsData.slice(1)} categoryLabel="All Articles" isFiltered={false} />
+        <NewsletterSignup />
+      </>
+    }>
+      <FilteredContent />
+    </Suspense>
+  );
+}
 
 export default function Home() {
-  const searchParams = useSearchParams();
-  const category = searchParams.get('category');
-
-  // Category mapping
-  const categoryBuckets: Record<string, string[]> = {
-    'advertising': ['Paid Advertising', 'B2C Marketing'],
-    'tech': ['Marketing Tech', 'Marketing Analytics', 'Digital Marketing'],
-  };
-
-  // Filter posts based on category
-  let filteredPosts = postsData;
-  let activeCategoryLabel = 'All Articles';
-
-  if (category && categoryBuckets[category]) {
-    const allowedCategories = categoryBuckets[category];
-    filteredPosts = postsData.filter(post => allowedCategories.includes(post.category));
-    
-    if (category === 'advertising') {
-      activeCategoryLabel = 'Advertising';
-    } else if (category === 'tech') {
-      activeCategoryLabel = 'Tech & Analytics';
-    }
-  }
-
-  const featuredPost = filteredPosts[0];
-  const otherPosts = filteredPosts.slice(1);
-
-  return (
-    <>
-      {featuredPost && <Hero post={featuredPost} />}
-      <PostGrid 
-        posts={otherPosts} 
-        categoryLabel={activeCategoryLabel}
-        isFiltered={!!category}
-      />
-      <NewsletterSignup />
-    </>
-  );
+  return <HomeContent />;
 }
