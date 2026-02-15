@@ -2,19 +2,24 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
-function HeaderContent() {
+export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const searchParams = useSearchParams();
-  const currentCategory = searchParams?.get('category') || null;
+  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setCurrentCategory(params.get('category'));
+    }
   }, []);
 
   // Lock body scroll when mobile menu is open
@@ -159,30 +164,5 @@ function HeaderContent() {
         )}
       </AnimatePresence>
     </>
-  );
-}
-
-export default function Header() {
-  return (
-    <Suspense fallback={
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="sticky top-0 z-50 bg-white/60 backdrop-blur-sm"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            <Link href="/" className="flex items-center">
-              <span className="text-2xl md:text-3xl font-[var(--font-display)] font-bold tracking-tight">
-                GROWTH<span className="text-neon-cyan">.</span>PULSE
-              </span>
-            </Link>
-          </div>
-        </div>
-      </motion.header>
-    }>
-      <HeaderContent />
-    </Suspense>
   );
 }

@@ -4,11 +4,17 @@ import Hero from '@/components/Hero';
 import PostGrid from '@/components/PostGrid';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import postsData from '@/public/posts/posts.json';
-import { useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 export default function FilteredContent() {
-  const searchParams = useSearchParams();
-  const category = searchParams?.get('category') || null;
+  const [category, setCategory] = useState<string | null>(null);
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setCategory(params.get('category'));
+    }
+  }, []);
 
   // Category mapping
   const categoryBuckets: Record<string, string[]> = {
