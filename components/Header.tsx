@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react';
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -15,24 +14,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      setCurrentCategory(params.get('category'));
-    }
-  }, []);
-
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
-
-  const navLinks = [
-    { label: 'Home', href: '/', color: 'hover:text-neon-cyan', active: !currentCategory },
-    { label: 'Advertising', href: '/?category=advertising', color: 'hover:text-neon-magenta', active: currentCategory === 'advertising' },
-    { label: 'Tech & Analytics', href: '/?category=tech', color: 'hover:text-neon-yellow', active: currentCategory === 'tech' },
-  ];
 
   const handleSubscribeClick = () => {
     setMobileOpen(false);
@@ -68,23 +54,16 @@ export default function Header() {
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className={`text-sm font-[var(--font-display)] font-medium transition-colors duration-200 ${
-                    link.active 
-                      ? 'text-neon-cyan' 
-                      : `text-ink-muted ${link.color}`
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <Link
+                href="/"
+                className="text-sm font-[var(--font-display)] font-medium text-ink-muted hover:text-neon-cyan transition-colors duration-200"
+              >
+                Home
+              </Link>
 
               <button
                 onClick={handleSubscribeClick}
-                className="ml-2 px-5 py-2 bg-ink text-white text-sm font-[var(--font-display)] font-semibold rounded-lg hover:bg-neon-cyan hover:text-ink transition-all duration-200"
+                className="px-5 py-2 bg-ink text-white text-sm font-[var(--font-display)] font-semibold rounded-lg hover:bg-neon-cyan hover:text-ink transition-all duration-200"
               >
                 Subscribe
               </button>
@@ -129,32 +108,27 @@ export default function Header() {
             className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center md:hidden"
           >
             <nav className="flex flex-col items-center gap-8">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`text-3xl font-[var(--font-display)] font-bold transition-colors ${
-                      link.active ? 'text-neon-cyan' : 'text-ink hover:text-neon-cyan'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.1 }}
+              >
+                <Link
+                  href="/"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-3xl font-[var(--font-display)] font-bold text-ink hover:text-neon-cyan transition-colors"
+                >
+                  Home
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
               >
                 <button
                   onClick={handleSubscribeClick}
-                  className="mt-4 px-8 py-3 bg-ink text-white text-lg font-[var(--font-display)] font-semibold rounded-lg hover:bg-neon-cyan hover:text-ink transition-all"
+                  className="px-8 py-3 bg-ink text-white text-lg font-[var(--font-display)] font-semibold rounded-lg hover:bg-neon-cyan hover:text-ink transition-all"
                 >
                   Subscribe
                 </button>
