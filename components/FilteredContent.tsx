@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation';
 
 export default function FilteredContent() {
   const searchParams = useSearchParams();
-  const category = searchParams.get('category');
+  const category = searchParams?.get('category') || null;
 
   // Category mapping
   const categoryBuckets: Record<string, string[]> = {
