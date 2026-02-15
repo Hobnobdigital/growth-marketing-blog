@@ -5,19 +5,7 @@ import postsData from '@/public/posts/posts.json';
 import { Suspense } from 'react';
 import FilteredContent from '@/components/FilteredContent';
 
-// Generate static params for all category combinations
-export function generateStaticParams() {
-  return [
-    { category: [] },
-    { category: ['advertising'] },
-    { category: ['tech'] },
-  ];
-}
-
-// Force dynamic for search params
-export const dynamic = 'force-dynamic';
-
-function HomeContent() {
+export default function Home() {
   return (
     <Suspense fallback={
       <>
@@ -29,8 +17,4 @@ function HomeContent() {
       <FilteredContent />
     </Suspense>
   );
-}
-
-export default function Home() {
-  return <HomeContent />;
 }
