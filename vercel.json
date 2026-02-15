@@ -2,6 +2,12 @@
   "redirects": [
     {
       "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "growth-marketing-blog.vercel.app"
+        }
+      ],
       "destination": "https://growthmarketingpulse.com/:path*",
       "permanent": true
     }
