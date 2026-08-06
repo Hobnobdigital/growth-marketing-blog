@@ -19,9 +19,40 @@ export async function generateMetadata({ params }: PostPageProps) {
   const { id } = await params;
   const post = postsData.find((p) => p.id === id);
   if (!post) return {};
+  
+  const siteUrl = 'https://growthmarketingpulse.com';
+  const imageUrl = post.image_url?.startsWith('http') 
+    ? post.image_url 
+    : `${siteUrl}${post.image_url}`;
+  
   return {
     title: `${post.title} — Growth Pulse`,
     description: post.snippet,
+    openGraph: {
+      title: post.title,
+      description: post.snippet,
+      url: `${siteUrl}/post/${post.slug}`,
+      siteName: 'Growth Marketing Pulse',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      locale: 'en_US',
+      type: 'article',
+      publishedTime: post.published_at,
+      authors: ['Kwame Sarkodee-Adoo'],
+      tags: [post.category],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.snippet,
+      images: [imageUrl],
+    },
   };
 }
 
