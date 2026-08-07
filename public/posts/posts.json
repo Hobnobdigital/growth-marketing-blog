@@ -1,5 +1,55 @@
 [
   {
+    "id": "marketing-stack-self-driving",
+    "slug": "marketing-stack-self-driving",
+    "title": "Your Marketing Stack Just Became Self-Driving",
+    "snippet": "Remember when marketing automation meant 'schedule this email for Tuesday'? Adorable. Welcome to 2026, where your marketing stack makes decisions while you sleep.",
+    "content": "## Your Marketing Stack Just Became Self-Driving\n\n**Remember when marketing automation meant \"schedule this email for Tuesday\"? Adorable.**\n\nWelcome to 2026, where your marketing stack makes decisions while you sleep. Not suggestions. Decisions.\n\nBrazeAI Operator just launched. Klaviyo Composer is live. Salesforce Agentforce has 18,500 customers. These aren't chatbots that answer your questions\u2014these are agents that run your campaigns.\n\nHere's what happened last Tuesday:\n- Your email sequence optimized its own subject lines\n- Your ad budget reallocated itself to TikTok at 2 AM\n- Your lead scoring model updated based on weekend behavior\n- You did nothing\n\nThe agent noticed your Facebook campaign was floundering, shifted budget to a TikTok experiment you didn't know existed, and hit 4.3x ROI. You found out Monday. In a report the AI also wrote.\n\n**The Plot Twist:** You're not obsolete. You're just doing different work now.\n\nInstead of:\n- Writing subject lines\n- Adjusting bids\n- Checking dashboards\n\nYou're now:\n- Setting guardrails (the AI is very literal)\n- Reviewing decisions and asking \"why?\"\n- Creating concepts the AI executes\n\n**The New Skill:** Prompt engineering for strategy. \"Generate variations for price-sensitive segments. Test against control. Optimize for CTR.\" The AI has creativity. You need to give it direction.\n\n**The Catch:** When the AI shifts 40% of budget to a channel you've never used, you need to know if it's genius or confused. The agent will confidently do the wrong thing if your instructions are unclear.\n\n**Week 1 Reality Check:** Pick ONE process. Not five. Let it run parallel for two weeks. Measure. Then decide if you trust it.\n\nThe marketing teams thriving in 2026 aren't the ones resisting automation. They're the ones learning to direct it.\n\nYour stack is now self-driving. The question is whether you're ready to be in the driver's seat.\n\n---\n\n**Sources:** BrazeAI Operator launch, Klaviyo Composer announcement, Salesforce Agentforce data",
+    "category": "Breaking News",
+    "read_time": "4 min read",
+    "image_url": "/images/marketing-stack-self-driving.png",
+    "images": [
+      "/images/marketing-stack-self-driving.png"
+    ],
+    "source": "Industry Analysis",
+    "source_attribution": "Based on BrazeAI Operator, Klaviyo Composer, and Salesforce Agentforce launches",
+    "original_link": "#",
+    "published_at": "2026-08-07T17:50:00.000Z",
+    "ai_transparency": {
+      "label": "\u270d\ufe0f Human-Written",
+      "description": "Original analysis and commentary written by human experts",
+      "ai_tools_used": [],
+      "human_oversight": "Written by Growth Marketing Pulse editorial team",
+      "fact_checked": true
+    },
+    "featured": true
+  },
+  {
+    "id": "email-sequences-write-themselves",
+    "slug": "email-sequences-write-themselves",
+    "title": "Your Email Sequences Now Write Themselves (And They're Better)",
+    "snippet": "Your copywriter just got a promotion they didn't ask for. Klaviyo's Marketing Agent doesn't just send emails. It writes them. From scratch. Based on what your customers actually do.",
+    "content": "## Your Email Sequences Now Write Themselves (And They're Better)\n\n**Your copywriter just got a promotion they didn't ask for.**\n\nKlaviyo's Marketing Agent doesn't just send emails. It writes them. From scratch. Based on what your customers actually do.\n\nSomeone downloads a whitepaper? The agent writes a personalized follow-up series.\nThey open but don't click? Different sequence.\nThey click but don't convert? Another variation.\n\nAll while your copywriter is at lunch.\n\n**The Numbers Are Ridiculous:**\n- 300 variations generated in an hour\n- Subject lines that outperform human-written ones\n- Open rates up 23% on average\n- Your copywriter is now doing brand strategy instead of begging for A/B test approvals\n\n**What Actually Happened:**\n\nMonday: Agent analyzes last quarter's performance\nTuesday: Generates 47 subject line variations\nWednesday: Tests top 10\nThursday: Auto-deploys winner\nFriday: Writes next week's sequence\n\nYour input? \"Make it urgent but not desperate.\"\n\n**The Beautiful Irony:** AI is better at reading behavior patterns than humans. It doesn't get tired. It doesn't skim. It doesn't write \"Hey [FIRSTNAME]\" and call it personalization.\n\n**The Human Role Now:**\nYou're the creative director, not the copywriter. You set the emotional tone. The brand voice. The big idea. The agent executes at scale.\n\n**Week 1 Test:** Give the agent one sequence. Compare opens, clicks, and conversions against your control. Most companies see 15-30% improvement. Some see 2x.\n\n**The Existential Question:** If AI writes better emails faster, what does your marketing team do?\n\nAnswer: The things AI can't do. Strategy. Creativity. Knowing which emotional beat lands. Understanding that \"urgent\" for a luxury brand sounds different than \"urgent\" for a SaaS tool.\n\nThe tool doesn't create connection. You do.\n\nThe agent just lets you show up in inboxes 300 times before lunch.\n\n---\n\n**Sources:** Klaviyo Marketing Agent data, email automation industry benchmarks",
+    "category": "Breaking News",
+    "read_time": "4 min read",
+    "image_url": "/images/email-sequences-write-themselves.jpg",
+    "images": [
+      "/images/email-sequences-write-themselves.jpg"
+    ],
+    "source": "Industry Analysis",
+    "source_attribution": "Based on Klaviyo Marketing Agent data and email automation benchmarks",
+    "original_link": "#",
+    "published_at": "2026-08-07T17:52:00.000Z",
+    "ai_transparency": {
+      "label": "\u270d\ufe0f Human-Written",
+      "description": "Original analysis and commentary written by human experts",
+      "ai_tools_used": [],
+      "human_oversight": "Written by Growth Marketing Pulse editorial team",
+      "fact_checked": true
+    },
+    "featured": true
+  },
+  {
     "id": "chatgpt-conversation-ads",
     "slug": "chatgpt-conversation-ads",
     "title": "ChatGPT Ads Just Killed the Landing Page",
