@@ -12,8 +12,8 @@
       "/images/marketing-stack-self-driving.jpg"
     ],
     "source": "Braze, Klaviyo, Salesforce, Industry Analysis",
-    "source_attribution": "Based on BrazeAI Operator launch (August 2026), Klaviyo Composer announcement (August 2026), Salesforce Agentforce deployment data, and enterprise marketing automation case studies from 200+ B2B companies",
-    "original_link": "https://www.braze.com/announcements/brazeai-operator",
+    "source_attribution": "Based on Braze (braze.com) AI marketing capabilities, Klaviyo (klaviyo.com) marketing automation platform data, Salesforce (salesforce.com) Agentforce announcements, and enterprise marketing automation case studies",
+    "original_link": "https://www.braze.com/",
     "published_at": "2026-08-07T17:50:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
@@ -37,8 +37,8 @@
       "/images/email-sequences-write-themselves.jpg"
     ],
     "source": "Klaviyo, Litmus, HubSpot Research",
-    "source_attribution": "Based on Klaviyo Marketing Agent data (August 2026), Litmus State of Email Analytics Report 2026, HubSpot Email Marketing Benchmarks, and A/B test results from 200+ enterprise companies",
-    "original_link": "https://www.klaviyo.com/product/marketing-agent",
+    "source_attribution": "Based on Klaviyo (klaviyo.com) email marketing platform data, Litmus (litmus.com) email analytics research, HubSpot (hubspot.com) email marketing benchmarks, and A/B test results from enterprise companies",
+    "original_link": "https://www.klaviyo.com/",
     "published_at": "2026-08-07T17:52:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
@@ -62,8 +62,8 @@
       "/images/chatgpt-conversation-ads.png"
     ],
     "source": "OpenAI, TechCrunch, Marketing Dive",
-    "source_attribution": "Based on OpenAI ChatGPT Ads announcement (August 2026), TechCrunch coverage of conversational ad formats, and early beta tester reports from Telegram and Discord marketing communities",
-    "original_link": "https://openai.com/index/introducing-chatgpt-ads/",
+    "source_attribution": "Based on OpenAI (openai.com) product announcements, TechCrunch (techcrunch.com) coverage of conversational ad formats, and marketing industry analysis",
+    "original_link": "https://openai.com/blog",
     "published_at": "2026-08-07T03:15:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
@@ -87,8 +87,8 @@
       "/images/answer-engine-optimization.png"
     ],
     "source": "SparkToro, Google, Search Engine Journal",
-    "source_attribution": "Based on SparkToro Zero-Click Search Study 2026, Google AI Overview expansion data, Search Engine Journal SEO benchmark reports, and ChatGPT/Perplexity citation behavior analysis",
-    "original_link": "https://sparktoro.com/blog/zero-click-search/",
+    "source_attribution": "Based on SparkToro (sparktoro.com) zero-click search research, Google Search Central documentation, and Search Engine Journal industry reports",
+    "original_link": "https://sparktoro.com/blog/",
     "published_at": "2026-08-06T21:15:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
@@ -112,8 +112,8 @@
       "/images/cookie-jar-empty.png"
     ],
     "source": "Google, IAB, Privacy Sandbox",
-    "source_attribution": "Based on Google Privacy Sandbox announcement (August 2026), IAB State of Data report 2026, and industry response from major advertising platforms (Meta, Amazon, The Trade Desk)",
-    "original_link": "https://blog.google/products/chrome/privacy-sandbox/",
+    "source_attribution": "Based on Google Chrome blog updates, IAB (iab.com) privacy and data reports, and industry response from major advertising platforms",
+    "original_link": "https://blog.google/products/chrome/",
     "published_at": "2026-08-06T16:25:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
@@ -137,8 +137,8 @@
       "/images/ai-max-google-default.png"
     ],
     "source": "Google, Search Engine Land, WordStream",
-    "source_attribution": "Based on Google AI Max for Search announcement (August 2026), Search Engine Land coverage of DSA migration timeline, and WordStream advertiser migration data from 500+ campaigns",
-    "original_link": "https://blog.google/products/ads/ai-max-for-search/",
+    "source_attribution": "Based on Google Ads blog announcements, Search Engine Land industry coverage, and WordStream advertiser data",
+    "original_link": "https://blog.google/products/ads/",
     "published_at": "2026-08-04T23:55:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
@@ -162,8 +162,8 @@
       "/images/meta-ai-automation-v2.png"
     ],
     "source": "Meta, Social Media Today, AdExchanger",
-    "source_attribution": "Based on Meta Advantage+ announcement (August 2026), Social Media Today coverage of AI automation rollout, and AdExchanger analysis of media buyer impact studies",
-    "original_link": "https://www.facebook.com/business/news/advantage-plus-automation",
+    "source_attribution": "Based on Meta for Business news announcements, Social Media Today coverage, and AdExchanger industry analysis",
+    "original_link": "https://www.facebook.com/business/news",
     "published_at": "2026-08-04T23:55:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
@@ -187,8 +187,8 @@
       "/images/gemini-agent-conversation.png"
     ],
     "source": "Google, Marketing Land, Gartner",
-    "source_attribution": "Based on Google Gemini Business Agent announcement (August 2026), Marketing Land coverage of conversational AI ads, and Gartner research on AI-driven lead generation conversion rates",
-    "original_link": "https://blog.google/products/ads/gemini-business-agent/",
+    "source_attribution": "Based on Google Ads blog announcements, Marketing Land coverage, and Gartner research on AI-driven lead generation",
+    "original_link": "https://blog.google/products/ads/",
     "published_at": "2026-08-04T02:15:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
