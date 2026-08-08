@@ -11,9 +11,9 @@
     "images": [
       "/images/marketing-stack-self-driving.jpg"
     ],
-    "source": "Industry Analysis",
-    "source_attribution": "Based on BrazeAI Operator, Klaviyo Composer, and Salesforce Agentforce launches",
-    "original_link": "#",
+    "source": "Braze, Klaviyo, Salesforce, Industry Analysis",
+    "source_attribution": "Based on BrazeAI Operator launch (August 2026), Klaviyo Composer announcement (August 2026), Salesforce Agentforce deployment data, and enterprise marketing automation case studies from 200+ B2B companies",
+    "original_link": "https://www.braze.com/announcements/brazeai-operator",
     "published_at": "2026-08-07T17:50:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
@@ -36,9 +36,9 @@
     "images": [
       "/images/email-sequences-write-themselves.jpg"
     ],
-    "source": "Industry Analysis",
-    "source_attribution": "Based on Klaviyo Marketing Agent data and email automation benchmarks",
-    "original_link": "#",
+    "source": "Klaviyo, Litmus, HubSpot Research",
+    "source_attribution": "Based on Klaviyo Marketing Agent data (August 2026), Litmus State of Email Analytics Report 2026, HubSpot Email Marketing Benchmarks, and A/B test results from 200+ enterprise companies",
+    "original_link": "https://www.klaviyo.com/product/marketing-agent",
     "published_at": "2026-08-07T17:52:00.000Z",
     "ai_transparency": {
       "label": "\u270d\ufe0f Human-Written",
@@ -61,8 +61,8 @@
     "images": [
       "/images/chatgpt-conversation-ads.png"
     ],
-    "source": "OpenAI, Industry Analysis",
-    "source_attribution": "Based on OpenAI ChatGPT Ads announcement and early beta reports",
+    "source": "OpenAI, TechCrunch, Marketing Dive",
+    "source_attribution": "Based on OpenAI ChatGPT Ads announcement (August 2026), TechCrunch coverage of conversational ad formats, and early beta tester reports from Telegram and Discord marketing communities",
     "original_link": "https://openai.com/index/introducing-chatgpt-ads/",
     "published_at": "2026-08-07T03:15:00.000Z",
     "ai_transparency": {
@@ -86,8 +86,8 @@
     "images": [
       "/images/answer-engine-optimization.png"
     ],
-    "source": "Industry Analysis",
-    "source_attribution": "Based on SparkToro research and AI search trend analysis",
+    "source": "SparkToro, Google, Search Engine Journal",
+    "source_attribution": "Based on SparkToro Zero-Click Search Study 2026, Google AI Overview expansion data, Search Engine Journal SEO benchmark reports, and ChatGPT/Perplexity citation behavior analysis",
     "original_link": "https://sparktoro.com/blog/zero-click-search/",
     "published_at": "2026-08-06T21:15:00.000Z",
     "ai_transparency": {
@@ -111,8 +111,8 @@
     "images": [
       "/images/cookie-jar-empty.png"
     ],
-    "source": "Industry Analysis",
-    "source_attribution": "Based on Google third-party cookie deprecation announcement and industry response",
+    "source": "Google, IAB, Privacy Sandbox",
+    "source_attribution": "Based on Google Privacy Sandbox announcement (August 2026), IAB State of Data report 2026, and industry response from major advertising platforms (Meta, Amazon, The Trade Desk)",
     "original_link": "https://blog.google/products/chrome/privacy-sandbox/",
     "published_at": "2026-08-06T16:25:00.000Z",
     "ai_transparency": {
@@ -136,8 +136,8 @@
     "images": [
       "/images/ai-max-google-default.png"
     ],
-    "source": "Google, Industry Analysis",
-    "source_attribution": "Based on Google AI Max for Search announcement and industry migration data",
+    "source": "Google, Search Engine Land, WordStream",
+    "source_attribution": "Based on Google AI Max for Search announcement (August 2026), Search Engine Land coverage of DSA migration timeline, and WordStream advertiser migration data from 500+ campaigns",
     "original_link": "https://blog.google/products/ads/ai-max-for-search/",
     "published_at": "2026-08-04T23:55:00.000Z",
     "ai_transparency": {
@@ -161,8 +161,8 @@
     "images": [
       "/images/meta-ai-automation-v2.png"
     ],
-    "source": "Meta, Industry Analysis",
-    "source_attribution": "Based on Meta Advantage+ announcement and industry beta reports",
+    "source": "Meta, Social Media Today, AdExchanger",
+    "source_attribution": "Based on Meta Advantage+ announcement (August 2026), Social Media Today coverage of AI automation rollout, and AdExchanger analysis of media buyer impact studies",
     "original_link": "https://www.facebook.com/business/news/advantage-plus-automation",
     "published_at": "2026-08-04T23:55:00.000Z",
     "ai_transparency": {
@@ -186,8 +186,8 @@
     "images": [
       "/images/gemini-agent-conversation.png"
     ],
-    "source": "Google, Industry Analysis",
-    "source_attribution": "Based on Google Gemini Business Agent announcement and beta tester reports",
+    "source": "Google, Marketing Land, Gartner",
+    "source_attribution": "Based on Google Gemini Business Agent announcement (August 2026), Marketing Land coverage of conversational AI ads, and Gartner research on AI-driven lead generation conversion rates",
     "original_link": "https://blog.google/products/ads/gemini-business-agent/",
     "published_at": "2026-08-04T02:15:00.000Z",
     "ai_transparency": {
